@@ -1,5 +1,5 @@
 {
-  "name": "day5",
+  "name": "day6",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,12 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GreenOn/Spring2017Day5.git"
+    "url": "git+https://github.com/GreenOn/Spring2017Day6.git"
   },
   "author": "Pramod",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GreenOn/Spring2017Day5/issues"
+    "url": "https://github.com/GreenOn/Spring2017Day6/issues"
   },
-  "homepage": "https://github.com/GreenOn/Spring2017Day5#readme"
+  "homepage": "https://github.com/GreenOn/Spring2017Day6#readme",
+  "dependencies": {
+    "mongoose": "^4.9.6",
+    "restify": "^4.3.0"
+  }
 }

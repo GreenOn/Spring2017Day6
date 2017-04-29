@@ -5,7 +5,7 @@ var client = require('./client');
 
 var server = restify.createServer();
 const port = 8080;
-const dbserver = 'mongodb://localhost/todo';
+const dbserver = 'mongodb://localhost/testing';
 
 
 mongoose.connect(dbserver);
@@ -19,9 +19,11 @@ db.once('open', function(){
 	console.log("Mongoose connection established.");
 });
 
-server.get('/', function(req, res,next){
-	res.send("Success");
-});
+server.get('/', restify.serveStatic({
+	directory: './client',
+	default: "index.html"
+}));
+
 server.get('/tasks', tasks.read);
 server.get('/client', client.get);
 server.post('/tasks/:task', tasks.create);
