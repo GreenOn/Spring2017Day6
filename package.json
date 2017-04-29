@@ -1,0 +1,20 @@
+{
+  "name": "day5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GreenOn/Spring2017Day5.git"
+  },
+  "author": "Pramod",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GreenOn/Spring2017Day5/issues"
+  },
+  "homepage": "https://github.com/GreenOn/Spring2017Day5#readme"
+}

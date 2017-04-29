@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task List</title>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous">
+  </script>	
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script language="javascript" type="text/javascript">
+  	function getTasks() { 
+  		$.getJSON('/tasks', function(result){
+  			$.each(result, function(i, field){
+  				$("#taskList").append(`
+                <a class="list-group-item ">
+                  <h4 class="list-group-item-heading">
+                    ${field.task}
+                  </h4>
+                  <p class="list-group-item-text">${field.date}</p>
+                <a>
+              `);
+  		})
+  	});
+  	}
+  	$(document).ready(function(){
+  		getTasks();
+  		$("#addTask").click(function(){
+  			var newTask = $("#newTask").val();
+  			if(newTask === ""){return false;}
+  			else{
+  				$.post('/tasks/'+ newTask, function(data){
+  					$("#taskList").empty();
+  					getTasks();
+					$("#newTask").val("");
+  				});
+  			}
+  		})
+  	});
+
+  </script>
+
+</head>
+<body>
+<div class ="jumbotron">
+	<h1>ToDo List</h1>	
+	<div class = "container">
+	<h1>
+	<input id ="newTask" type="text" class="form-control" placeholder ="Need to do..">
+	<button id="addTask" class="btn btn-default" type="button">
+		Add a Task
+	</button>
+		
+	</h1>
+		
+	</div>
+</div>
+
+<ul id="taskList">
+	
+</ul>
+<div id="taskList">
+	
+</div>
+</body>
+</html>
